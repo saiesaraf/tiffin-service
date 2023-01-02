@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <span>Tiffin Service</span>
+  <div *ngIf="socialAuthService.authState | async as socialUser">
+    <p >Hello, {{socialUser.firstName}}!</p>
+    <button mat-raised-button (click)="logout()">Logout</button>
+  </div>
+<!--        <button *ngIf="isNotLoggedIn === false">-->
+<!--          <asl-google-signin-button></asl-google-signin-button>-->
+<!--        </button>-->
+
+  <button *ngIf="!isNotLoggedIn" (click)="signInWithGoogle()">
+     <div *ngIf="isButtonClicked">
+    <asl-google-signin-button></asl-google-signin-button>
+     </div>
+  </button>
+    </mat-toolbar>
+
