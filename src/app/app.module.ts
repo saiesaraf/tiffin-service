@@ -14,6 +14,7 @@ import { RegisterComponentComponent } from './register-component/register-compon
 import { LoginComponent } from './login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import {GoogleLoginProvider, SocialLoginModule} from "@abacritt/angularx-social-login";
+import {ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,18 +33,19 @@ import {GoogleLoginProvider, SocialLoginModule} from "@abacritt/angularx-social-
     MatButtonModule,
     MaterialExampleModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',
     useValue: {
-      autoLogin: true, //keeps the user signed in
+      autoLogin: false, //keeps the user signed in
       providers: [
         {
           id: GoogleLoginProvider.PROVIDER_ID,
           provider: new GoogleLoginProvider('237140408610-69ojj9edsmlp0lbhqji7e8pd1s9k1b2v.apps.googleusercontent.com') // your client id
         }
-      ]
+      ],
     }
   }
   ],

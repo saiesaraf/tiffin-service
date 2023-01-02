@@ -1,1 +1,9 @@
-<p>login works!</p>
+<button mat-icon-button aria-label="close dialog" mat-dialog-close>
+  <mat-icon>close</mat-icon>
+</button>
+<div *ngIf="socialAuthService.authState | async as socialUser">
+  <p >Hello, {{socialUser.firstName}}!</p>
+</div>
+<div *ngIf="isNotLoggedIn === false">
+  <asl-google-signin-button></asl-google-signin-button>
+</div>
